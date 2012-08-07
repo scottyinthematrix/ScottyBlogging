@@ -1,0 +1,31 @@
+﻿about
+======
+this product should have a blogging service for basic operations on posts, such as adding/updating/deleting/fetching;
+
+for the backend, Entity Framwork will be used, as i think this is still the best ORM solution on .NET;
+
+since this will be accessed from different kinds of clients, such as mobile/pc, all the client side should rely on the blogging service only, no more any other deployments and dependencies;
+
+for the UI side, we probably have below means from the client side: web/mobile/pc, and for the mobile, android will the first platform for this, as seems there's a tool/framework named MonoAndroid serves for this;
+
+backend storage
+===============
+Entity Framework will be chosen as the backend storage technique, and Code First will be used, instead of any other EF related techniques, such as POCO, Model First/Database First, STE.
+
+
+service
+========
+WCF will be used for building a service layer.
+
+
+UI side - pc : web
+=========
+MVC is absolutly needed, with the best effects and user experiences.
+
+UI side - pc : wpf?
+============
+this should has the least priority, as i'm not sure what kind of client platform should i choose, WinForm is not in my consideration list, wpf may be a good choice, but what about portability when moving it to Linux? and even more, the win8 is comming, may be i should study some metro style programming;
+
+UI side - mobile : web
+==============
+i think WebAPI is one of the best choices.
