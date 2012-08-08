@@ -29,3 +29,19 @@ this should has the least priority, as i'm not sure what kind of client platform
 UI side - mobile : web
 ==============
 i think WebAPI is one of the best choices.
+[due to the visual studio limitations, web-api will be unavailable at least right now, we'll take a look at this later.]
+
+UI - side - mobile : app
+==============
+refer to this (http://xamarin.com/monoforandroid) for more details.
+
+this has a lower priority and will be picked up in the future.
+
+
+
+Authentication & Authorization
+================
+finnaly i think, maybe it's time for me to start my own authentication&authorization system; i intend to build my own modules for this, and intend to utilize the MVC/web-api for the management operations. and i'm waiting for the Entity Framework version of Membership.
+
+now, let's just forget about this.
+
