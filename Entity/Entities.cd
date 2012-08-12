@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ScottyApps.ScottyBlogging.Entity.Blog">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAACAAAAAEAAAA=</HashCode>
+      <FileName>Blog.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Writer" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ScottyApps.ScottyBlogging.Entity.Writer">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACIAgCAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Writer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Blogs" />
+      <Property Name="Entries" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ScottyApps.ScottyBlogging.Entity.Entry">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAABgAAAAAAAAAAAAAABAAEAAAA=</HashCode>
+      <FileName>Entry.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Writer" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>
