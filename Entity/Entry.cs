@@ -1,65 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace ScottyApps.ScottyBlogging.Entity
 {
     public class Entry
     {
-        public string ID
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        [Key]
+        public string ID { get; set; }
+        [Required]
+        [DataType(System.ComponentModel.DataAnnotations.DataType.DateTime)]
+        public DateTime CreateDate { get; set; }
 
-        public DateTime CreateDate
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        [DataType(System.ComponentModel.DataAnnotations.DataType.DateTime)]
+        public DateTime ModifyDate { get; set; }
+        [MaxLength]
+        public string Body { get; set; }
 
-        public DateTime ModifyDate
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public Writer Writer { get; set; }
 
-        public string Body
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public ICollection<Comment> Comments { get; set; }
 
-        public Writer Writer
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public string PermUrl { get; set; }
     }
 }

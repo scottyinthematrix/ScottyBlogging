@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.Tests", "Mvc.Tests\Mvc.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Tests", "Service.Tests\Service.Tests.csproj", "{9B070827-2F6B-42C5-9146-B2E1A35EF3B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{3735AD17-BD48-4131-AB1E-B221010B76CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{1F2DB9CB-E37C-4EFA-8803-95E8A6CAC0B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F2DB9CB-E37C-4EFA-8803-95E8A6CAC0B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F2DB9CB-E37C-4EFA-8803-95E8A6CAC0B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3735AD17-BD48-4131-AB1E-B221010B76CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3735AD17-BD48-4131-AB1E-B221010B76CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3735AD17-BD48-4131-AB1E-B221010B76CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3735AD17-BD48-4131-AB1E-B221010B76CD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5A1E062F-17F8-43F7-86ED-A93C86B22B19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5A1E062F-17F8-43F7-86ED-A93C86B22B19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A1E062F-17F8-43F7-86ED-A93C86B22B19}.Release|Any CPU.ActiveCfg = Release|Any CPU

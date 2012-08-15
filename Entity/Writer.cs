@@ -1,65 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ScottyApps.ScottyBlogging.Entity
 {
     public class Writer
     {
-        public string ID
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        [Key]
+        public string ID { get; set; }
+        [MaxLength(50)]
+        public string Alias { get; set; }
+        [Required]
+        [MaxLength(50)]
+        public string Email { get; set; }
 
-        public string Alias
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public ICollection<Blog> Blogs { get; set; }
 
-        public string Email
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public IEnumerable<Blog> Blogs
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public IEnumerable<ScottyBlogging.Entity.Entry> Entries
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public ICollection<Entry> Entries { get; set; }
     }
 }

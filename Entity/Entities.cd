@@ -17,19 +17,62 @@
       <FileName>Writer.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
-      <Property Name="Blogs" />
       <Property Name="Entries" />
+      <Property Name="Blogs" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="ScottyApps.ScottyBlogging.Entity.Entry">
-    <Position X="5.5" Y="0.5" Width="1.5" />
+    <Position X="6" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAABgAAAAAAAAAAAAAABAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAAAAABgAAAAAAIAAAAAAABAAEAIAA=</HashCode>
       <FileName>Entry.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Writer" />
     </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Comments" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ScottyApps.ScottyBlogging.Entity.Comment">
+    <Position X="3.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Comment.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TargetEntry" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ScottyApps.ScottyBlogging.Entity.Gossip">
+    <Position X="6" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Gossip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScottyApps.ScottyBlogging.Entity.Article">
+    <Position X="8.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Article.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Tags" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ScottyApps.ScottyBlogging.Entity.Tag">
+    <Position X="11.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAgAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tag.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ParentTag" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="ChildTags" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Font Name="微软雅黑" Size="9" />
 </ClassDiagram>

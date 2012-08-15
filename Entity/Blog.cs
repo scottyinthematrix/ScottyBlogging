@@ -1,54 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ScottyApps.ScottyBlogging.Entity
 {
     public class Blog
     {
-        public string ID
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        [Required]
+        public string ID { get; set; }
+        [Required]
+        [MaxLength(50)]
+        public string Name { get; set; }
+        [Required]
+        public string Url { get; set; }
 
-        public string Name
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public string Url
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public Writer Writer
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public Writer Writer { get; set; }
     }
 }
