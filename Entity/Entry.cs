@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 
 namespace ScottyApps.ScottyBlogging.Entity
 {
+    [DataContract(IsReference = true)]
     public class Entry
     {
         [Key]
@@ -22,5 +24,7 @@ namespace ScottyApps.ScottyBlogging.Entity
         public ICollection<Comment> Comments { get; set; }
 
         public string PermUrl { get; set; }
+
+        public Blog Blog { get; set; }
     }
 }

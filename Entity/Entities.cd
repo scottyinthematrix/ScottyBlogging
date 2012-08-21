@@ -1,19 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ScottyApps.ScottyBlogging.Entity.Blog">
-    <Position X="0.75" Y="0.5" Width="1.5" />
+    <Position X="0.75" Y="2" Width="1.5" />
+    <AssociationLine Name="Entries" Type="ScottyApps.ScottyBlogging.Entity.Entry" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.5" Y="2" />
+        <Point X="1.5" Y="1.478" />
+        <Point X="6.812" Y="1.478" />
+        <Point X="6.812" Y="2" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAACAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgCAAAAAAAAQAAAAAAAAACAAAAAEAAAA=</HashCode>
       <FileName>Blog.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Writer" />
     </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Entries" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="ScottyApps.ScottyBlogging.Entity.Writer">
-    <Position X="3.25" Y="0.5" Width="1.5" />
+    <Position X="3.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACIAgCAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACIAgCAAAAAAAAAAAEAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Writer.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -22,20 +33,29 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="ScottyApps.ScottyBlogging.Entity.Entry">
-    <Position X="6" Y="0.5" Width="1.5" />
+    <Position X="6" Y="2" Width="1.5" />
+    <AssociationLine Name="Blog" Type="ScottyApps.ScottyBlogging.Entity.Blog" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.188" Y="2" />
+        <Point X="7.188" Y="1.006" />
+        <Point X="1.188" Y="1.006" />
+        <Point X="1.188" Y="2" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAABgAAAAAAIAAAAAAABAAEAIAA=</HashCode>
+      <HashCode>AAAIAAAAAAAAgAAAAAABgAAAAAAIAAAAAAABAAEAIAA=</HashCode>
       <FileName>Entry.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Writer" />
+      <Property Name="Blog" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Comments" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="ScottyApps.ScottyBlogging.Entity.Comment">
-    <Position X="3.5" Y="3.5" Width="1.5" />
+    <Position X="3.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Comment.cs</FileName>
@@ -45,14 +65,14 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="ScottyApps.ScottyBlogging.Entity.Gossip">
-    <Position X="6" Y="3.5" Width="1.5" />
+    <Position X="6" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Gossip.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ScottyApps.ScottyBlogging.Entity.Article">
-    <Position X="8.5" Y="3.5" Width="1.5" />
+    <Position X="8.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>Article.cs</FileName>
@@ -62,7 +82,7 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="ScottyApps.ScottyBlogging.Entity.Tag">
-    <Position X="11.5" Y="3.5" Width="1.5" />
+    <Position X="11.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAAAAAIAgAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Tag.cs</FileName>
