@@ -17,8 +17,8 @@
       <FileName>Writer.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
-      <Property Name="Entries" />
       <Property Name="Blogs" />
+      <Property Name="Entries" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="ScottyApps.ScottyBlogging.Entity.Entry">
@@ -64,7 +64,7 @@
   <Class Name="ScottyApps.ScottyBlogging.Entity.Tag">
     <Position X="11.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAgAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>IAAAAAAIAgAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Tag.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -72,6 +72,7 @@
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="ChildTags" />
+      <Property Name="Articles" />
     </ShowAsCollectionAssociation>
   </Class>
   <Font Name="微软雅黑" Size="9" />

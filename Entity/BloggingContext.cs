@@ -10,7 +10,9 @@ namespace ScottyApps.ScottyBlogging.Entity
     {
         public BloggingContext()
             : base("Blogging")
-        { }
+        {
+            Database.SetInitializer<BloggingContext>(new DropCreateDatabaseIfModelChanges<BloggingContext>());
+        }
 
         public DbSet<Article> Articles { get; set; }
         public DbSet<Blog> Blogs { get; set; }
@@ -23,6 +25,16 @@ namespace ScottyApps.ScottyBlogging.Entity
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            // many-to-many mapping between Entries and Tags
+            modelBuilder.Entity<Article>().
+                HasMany(a => a.Tags)
+                .WithMany(t => t.Articles).Map(m =>
+                {
+                    m.MapLeftKey("EntryID");
+                    m.MapRightKey("TagID");
+                    m.ToTable("EntryTags");
+                });
         }
     }
 }

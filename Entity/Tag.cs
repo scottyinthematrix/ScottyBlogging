@@ -11,5 +11,16 @@ namespace ScottyApps.ScottyBlogging.Entity
         public Tag ParentTag { get; set; }
 
         public ICollection<Tag> ChildTags { get; set; }
+
+        public ICollection<Article> Articles
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
     }
 }
