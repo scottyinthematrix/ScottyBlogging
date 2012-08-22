@@ -21,6 +21,11 @@ namespace ScottyApps.ScottyBlogging.Entity
         public DbSet<Gossip> Gossips { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Writer> Writers { get; set; }
+        public DbSet<MediaGroup> MediaGroups { get; set; }
+        public DbSet<Media> Medias { get; set; }
+        public DbSet<Audio> Audios { get; set; }
+        public DbSet<Vedio> Vedios { get; set; }
+        public DbSet<Graph> Graphs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
