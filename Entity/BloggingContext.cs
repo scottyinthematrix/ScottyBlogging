@@ -27,9 +27,9 @@ namespace ScottyApps.ScottyBlogging.Entity
             base.OnModelCreating(modelBuilder);
 
             // many-to-many mapping between Entries and Tags
-            modelBuilder.Entity<Article>().
+            modelBuilder.Entity<Entry>().
                 HasMany(a => a.Tags)
-                .WithMany(t => t.Articles).Map(m =>
+                .WithMany(t => t.Entries).Map(m =>
                 {
                     m.MapLeftKey("EntryID");
                     m.MapRightKey("TagID");

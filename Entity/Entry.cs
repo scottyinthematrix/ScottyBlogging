@@ -26,5 +26,7 @@ namespace ScottyApps.ScottyBlogging.Entity
         public string PermUrl { get; set; }
 
         public Blog Blog { get; set; }
+
+        public ICollection<Tag> Tags { get; set; }
     }
 }

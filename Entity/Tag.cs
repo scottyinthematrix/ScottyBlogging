@@ -14,15 +14,9 @@ namespace ScottyApps.ScottyBlogging.Entity
 
         public ICollection<Tag> ChildTags { get; set; }
 
-        public ICollection<Article> Articles
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public ICollection<Entry> Entries { get; set; }
+
+        [MaxLength(500)]
+        public string Description { get; set; }
     }
 }

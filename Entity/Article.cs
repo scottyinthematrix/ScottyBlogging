@@ -10,7 +10,5 @@ namespace ScottyApps.ScottyBlogging.Entity
         [Required]
         [MaxLength(200)]
         public string Title { get; set; }
-
-        public ICollection<Tag> Tags { get; set; }
     }
 }

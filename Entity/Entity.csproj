@@ -47,13 +47,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Article.cs" />
+    <Compile Include="Audio.cs" />
     <Compile Include="Blog.cs" />
     <Compile Include="BloggingContext.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="Entry.cs" />
     <Compile Include="Gossip.cs" />
+    <Compile Include="Media.cs" />
+    <Compile Include="MediaGroup.cs" />
+    <Compile Include="Graph.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tag.cs" />
+    <Compile Include="Vedio.cs" />
     <Compile Include="Writer.cs" />
   </ItemGroup>
   <ItemGroup>
