@@ -1,4 +1,4 @@
-﻿using Service;
+﻿using ScottyApps.ScottyBlogging.Service;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
@@ -65,46 +65,46 @@ namespace Service.Tests
         #endregion
 
 
-        /// <summary>
-        ///A test for GetData
-        ///</summary>
-        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
-        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
-        // whether you are testing a page, web service, or a WCF service.
-        [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("D:\\Projects\\MyProjs\\ScottyBlogging\\ScottyBlogging\\Service", "/")]
-        [UrlToTest("http://localhost:65230/")]
-        public void GetDataTest()
-        {
-            BloggingService target = new BloggingService(); // TODO: Initialize to an appropriate value
-            int value = 0; // TODO: Initialize to an appropriate value
-            string expected = string.Empty; // TODO: Initialize to an appropriate value
-            string actual;
-            actual = target.GetData(value);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
+        ///// <summary>
+        /////A test for GetData
+        /////</summary>
+        //// TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        //// http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        //// whether you are testing a page, web service, or a WCF service.
+        //[TestMethod()]
+        //[HostType("ASP.NET")]
+        //[AspNetDevelopmentServerHost("D:\\Projects\\MyProjs\\ScottyBlogging\\ScottyBlogging\\Service", "/")]
+        //[UrlToTest("http://localhost:65230/")]
+        //public void GetDataTest()
+        //{
+        //    BloggingService target = new BloggingService(); // TODO: Initialize to an appropriate value
+        //    int value = 0; // TODO: Initialize to an appropriate value
+        //    string expected = string.Empty; // TODO: Initialize to an appropriate value
+        //    string actual;
+        //    actual = target.GetData(value);
+        //    Assert.AreEqual(expected, actual);
+        //    Assert.Inconclusive("Verify the correctness of this test method.");
+        //}
 
-        /// <summary>
-        ///A test for GetDataUsingDataContract
-        ///</summary>
-        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
-        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
-        // whether you are testing a page, web service, or a WCF service.
-        [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("D:\\Projects\\MyProjs\\ScottyBlogging\\ScottyBlogging\\Service", "/")]
-        [UrlToTest("http://localhost:65230/")]
-        public void GetDataUsingDataContractTest()
-        {
-            BloggingService target = new BloggingService(); // TODO: Initialize to an appropriate value
-            CompositeType composite = null; // TODO: Initialize to an appropriate value
-            CompositeType expected = null; // TODO: Initialize to an appropriate value
-            CompositeType actual;
-            actual = target.GetDataUsingDataContract(composite);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
+        ///// <summary>
+        /////A test for GetDataUsingDataContract
+        /////</summary>
+        //// TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        //// http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        //// whether you are testing a page, web service, or a WCF service.
+        //[TestMethod()]
+        //[HostType("ASP.NET")]
+        //[AspNetDevelopmentServerHost("D:\\Projects\\MyProjs\\ScottyBlogging\\ScottyBlogging\\Service", "/")]
+        //[UrlToTest("http://localhost:65230/")]
+        //public void GetDataUsingDataContractTest()
+        //{
+        //    BloggingService target = new BloggingService(); // TODO: Initialize to an appropriate value
+        //    CompositeType composite = null; // TODO: Initialize to an appropriate value
+        //    CompositeType expected = null; // TODO: Initialize to an appropriate value
+        //    CompositeType actual;
+        //    actual = target.GetDataUsingDataContract(composite);
+        //    Assert.AreEqual(expected, actual);
+        //    Assert.Inconclusive("Verify the correctness of this test method.");
+        //}
     }
 }
