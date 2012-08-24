@@ -52,6 +52,7 @@
     <Compile Include="BloggingContext.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="Entry.cs" />
+    <Compile Include="Enums.cs" />
     <Compile Include="Gossip.cs" />
     <Compile Include="Media.cs" />
     <Compile Include="MediaGroup.cs" />

@@ -28,5 +28,15 @@ namespace ScottyApps.ScottyBlogging.Entity
         public Blog Blog { get; set; }
 
         public ICollection<Tag> Tags { get; set; }
+
+        public void Add()
+        {
+        }
+        public void Update()
+        {
+        }
+        public void Delete()
+        {
+        }
     }
 }

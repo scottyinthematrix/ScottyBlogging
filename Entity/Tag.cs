@@ -18,5 +18,15 @@ namespace ScottyApps.ScottyBlogging.Entity
 
         [MaxLength(500)]
         public string Description { get; set; }
+
+        public void Add()
+        {
+        }
+        public void Update()
+        {
+        }
+        public void Delete()
+        {
+        }
     }
 }

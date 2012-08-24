@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 
@@ -14,20 +15,25 @@ namespace ScottyApps.ScottyBlogging.Entity
         [Required]
         [MaxLength(50)]
         public string Email { get; set; }
+        public string Password { get; set; }
 
         public ICollection<Blog> Blogs { get; set; }
 
         public ICollection<Entry> Entries { get; set; }
 
-        public string Password
+        public RegisterStatus Register()
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            throw new NotImplementedException("hurry up, scotty!");
+        }
+        public UserValidationStatus Validate()
+        {
+            throw new NotImplementedException("hurry up, scotty!");
+        }
+        public void Update()
+        {
+        }
+        public void Delete()
+        {
         }
     }
 }

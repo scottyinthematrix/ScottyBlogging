@@ -18,5 +18,18 @@ namespace ScottyApps.ScottyBlogging.Entity
         public Writer Writer { get; set; }
 
         public ICollection<Entry> Entries { get; set; }
+
+        public void Add()
+        {
+        }
+
+        public void Update()
+        {
+        }
+
+        public void Delete()
+        {
+        }
+
     }
 }
