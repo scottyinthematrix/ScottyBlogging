@@ -1,16 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F8A63905-97D5-4270-89AC-B46DA1B85ED5}</ProjectGuid>
+    <ProjectGuid>{97763A38-1564-4B88-8857-142C244AA595}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ScottyApps.ScottyBlogging.Entity</RootNamespace>
-    <AssemblyName>ScottyApps.ScottyBlogging.Entity</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <RootNamespace>ScottyApps.ScottyBlogging.Resx</RootNamespace>
+    <AssemblyName>ScottyApps.ScottyBlogging.Resx</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -31,14 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0-rc\lib\net40\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,36 +39,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Article.cs" />
-    <Compile Include="Audio.cs" />
-    <Compile Include="Blog.cs" />
-    <Compile Include="BloggingContext.cs" />
-    <Compile Include="Comment.cs" />
-    <Compile Include="Entry.cs" />
-    <Compile Include="Enums.cs" />
-    <Compile Include="Gossip.cs" />
-    <Compile Include="Media.cs" />
-    <Compile Include="MediaGroup.cs" />
-    <Compile Include="Graph.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tag.cs" />
-    <Compile Include="Vedio.cs" />
-    <Compile Include="Writer.cs" />
+    <Compile Include="ScottyBloggingResx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScottyBloggingResx.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ScottyBloggingResx.zh-cn.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScottyBloggingResx.zh-cn.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="Entities.cd" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DbContextExtentions\DbContextExtentions.csproj">
-      <Project>{29f2804f-de5c-441c-bdaa-57582fad30f8}</Project>
-      <Name>DbContextExtentions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Resx\Resx.csproj">
-      <Project>{97763a38-1564-4b88-8857-142c244aa595}</Project>
-      <Name>Resx</Name>
-    </ProjectReference>
+    <EmbeddedResource Include="ScottyBloggingResx.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScottyBloggingResx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScottyBloggingResx.zh-cn.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScottyBloggingResx.zh-cn.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
