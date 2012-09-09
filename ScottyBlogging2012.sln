@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resx", "Resx\Resx.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbContextExtentions", "DbContextExtentions\DbContextExtentions.csproj", "{29F2804F-DE5C-441C-BDAA-57582FAD30F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntlibExtensions", "EntlibExtensions\EntlibExtensions.csproj", "{5E6271D1-1D20-48F0-83F1-1F9BE3DB43C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{5A1E062F-17F8-43F7-86ED-A93C86B22B19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A1E062F-17F8-43F7-86ED-A93C86B22B19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A1E062F-17F8-43F7-86ED-A93C86B22B19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E6271D1-1D20-48F0-83F1-1F9BE3DB43C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E6271D1-1D20-48F0-83F1-1F9BE3DB43C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E6271D1-1D20-48F0-83F1-1F9BE3DB43C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E6271D1-1D20-48F0-83F1-1F9BE3DB43C8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8B848F88-0E81-4F1F-98B6-1BA14E621EAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8B848F88-0E81-4F1F-98B6-1BA14E621EAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B848F88-0E81-4F1F-98B6-1BA14E621EAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
