@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace ScottyApps.ScottyBlogging.Entity
         public BloggingContext()
             : base("Blogging")
         {
-            Database.SetInitializer<BloggingContext>(new DropCreateDatabaseIfModelChanges<BloggingContext>());
+            Database.SetInitializer<BloggingContext>(new BloggingInitializer());
         }
 
         public DbSet<Article> Articles { get; set; }
@@ -40,6 +41,50 @@ namespace ScottyApps.ScottyBlogging.Entity
                     m.MapRightKey("TagID");
                     m.ToTable("EntryTags");
                 });
+        }
+    }
+
+    internal class BloggingInitializer : DropCreateDatabaseIfModelChanges<BloggingContext>
+    {
+        protected override void Seed(BloggingContext context)
+        {
+            //base.Seed(context);
+
+            context.Writers.Add(new Writer
+            {
+                ID = Guid.NewGuid().ToString(),
+                Alias = "scotty_matrix",
+                Email = "scotty.cn@gmail.com",
+                Password = "cppfans",
+                Blogs = new Collection<Blog>
+                {
+                    new Blog
+                    {
+                        ID=Guid.NewGuid().ToString(),
+                        Name="Scotty In The Matrix",
+                        Url="http://www.scottyinthematrix.com",
+                        Entries=new Collection<Entry>
+                        {
+                            new Article
+                            {
+                                ID = Guid.NewGuid().ToString(),
+                                CreateDate = DateTime.Now,
+                                Title = "welcome",
+                                Body = "welcome to my blog",
+                                Tags = new Collection<Tag>
+                                {
+                                    new Tag
+                                    {
+                                        Name = "TestTag",
+                                        Description = "just for a test for right now"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            context.SaveChanges();
         }
     }
 }

@@ -11,14 +11,14 @@ using ScottyApps.Utilities.DbContextExtentions;
 namespace ScottyApps.ScottyBlogging.Entity
 {
     [DataContract(IsReference = true)]
-    public class Writer
+    public class Writer : EntityBase
     {
         [Key]
         public string ID { get; set; }
         [MaxLength(50)]
         public string Alias { get; set; }
         [Required]
-        [MaxLength(50)]
+        [MaxLength(52)]
         public string Email { get; set; }
         public string Password { get; set; }
 
@@ -68,33 +68,18 @@ namespace ScottyApps.ScottyBlogging.Entity
                 }
             }
         }
-        public void Update()
-        {
-            if (string.IsNullOrEmpty(this.ID))
-            {
-                throw new InvalidOperationException(ScottyBloggingResx.exMsg_EmptyWriterID);
-            }
 
-            using (BloggingContext ctx = new BloggingContext())
+        public override void AddToStore()
+        {
+            if(string.IsNullOrEmpty(this.ID))
             {
-                //ctx.Writers.Attach(this);
-                //ctx.Entry<Writer>(this).Property(w => w.Alias).IsModified = true;
-                //ctx.SaveChanges();
-                ctx.Update(this, w => w.Alias);
+                this.ID = Guid.NewGuid().ToString();
             }
+            base.AddToStore();
         }
-        public void Delete()
+        public override void UpdateToStore()
         {
-            if (string.IsNullOrEmpty(this.ID))
-            {
-                throw new InvalidOperationException(ScottyBloggingResx.exMsg_EmptyWriterID);
-            }
-
-            using (BloggingContext ctx = new BloggingContext())
-            {
-                ctx.Writers.Remove(this);
-                ctx.SaveChanges();
-            }
+            base.UpdateToStore<Writer>(w => w.Alias);
         }
     }
 }

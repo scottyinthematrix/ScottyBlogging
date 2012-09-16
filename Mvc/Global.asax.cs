@@ -31,6 +31,7 @@ namespace Mvc
 
         protected void Application_Start()
         {
+            // TODO Iniate and store the UnityContainer
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);

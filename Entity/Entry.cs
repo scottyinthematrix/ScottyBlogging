@@ -6,17 +6,16 @@ using System.Runtime.Serialization;
 namespace ScottyApps.ScottyBlogging.Entity
 {
     [DataContract(IsReference = true)]
-    public class Entry
+    public class Entry : EntityBase
     {
         [Key]
         public string ID { get; set; }
         [Required]
-        [DataType(System.ComponentModel.DataAnnotations.DataType.DateTime)]
+        [DataType(DataType.DateTime)]
         public DateTime CreateDate { get; set; }
 
-        [DataType(System.ComponentModel.DataAnnotations.DataType.DateTime)]
-        public DateTime ModifyDate { get; set; }
-        [MaxLength]
+        public DateTime? ModifyDate { get; set; }
+        [MaxLength(int.MaxValue)]
         public string Body { get; set; }
 
         public Writer Writer { get; set; }
@@ -29,14 +28,15 @@ namespace ScottyApps.ScottyBlogging.Entity
 
         public ICollection<Tag> Tags { get; set; }
 
-        public void Add()
+        public override void AddToStore()
         {
-        }
-        public void Update()
-        {
-        }
-        public void Delete()
-        {
+            if(string.IsNullOrEmpty(this.ID))
+            {
+                this.ID = Guid.NewGuid().ToString();
+            }
+            this.CreateDate = DateTime.Now;
+
+            base.AddToStore();
         }
     }
 }

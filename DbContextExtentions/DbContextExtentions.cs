@@ -11,7 +11,7 @@ namespace ScottyApps.Utilities.DbContextExtentions
 {
     public static class DbContextExtentions
     {
-        public static void Update<TEntry>(this DbContext ctx, TEntry entity, params Expression<Func<TEntry, string>>[] dirtyFields) where TEntry : class
+        public static void Update<TEntry>(this DbContext ctx, TEntry entity, params Expression<Func<TEntry, object>>[] dirtyFields) where TEntry : class
         {
             ctx.Set(typeof(TEntry)).Attach(entity);
 

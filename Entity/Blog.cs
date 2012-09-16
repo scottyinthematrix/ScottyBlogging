@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 
 namespace ScottyApps.ScottyBlogging.Entity
 {
     [DataContract(IsReference = true)]
-    public class Blog
+    public class Blog : EntityBase
     {
         [Required]
         public string ID { get; set; }
@@ -19,17 +20,13 @@ namespace ScottyApps.ScottyBlogging.Entity
 
         public ICollection<Entry> Entries { get; set; }
 
-        public void Add()
+        public override void AddToStore()
         {
+            if(string.IsNullOrEmpty(this.ID))
+            {
+                this.ID = Guid.NewGuid().ToString();
+            }
+            base.AddToStore();
         }
-
-        public void Update()
-        {
-        }
-
-        public void Delete()
-        {
-        }
-
     }
 }

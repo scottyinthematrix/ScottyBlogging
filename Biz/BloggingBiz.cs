@@ -10,7 +10,7 @@ namespace ScottyApps.ScottyBlogging.Biz
     public class BloggingBiz
     {
         #region Finders
-        public List<Blog> FindBlogs(/* TODO: accept expression as a predicate builder */)
+        public virtual List<Blog> FindBlogs(/* TODO: accept expression as a predicate builder */)
         {
             throw new NotImplementedException("hurry up, scotty!");
         }
@@ -18,27 +18,27 @@ namespace ScottyApps.ScottyBlogging.Biz
         #endregion
 
 
-        public List<Blog> GetBlogsForWriter(Writer writer)
+        public virtual List<Blog> GetBlogsForWriter(Writer writer)
         {
             throw new NotImplementedException("hurry up, scotty!");
         }
 
-        public List<Article> GetArticlesForBlog(Blog blog)
+        public virtual List<Article> GetArticlesForBlog(Blog blog)
         {
             throw new NotImplementedException("hurry up, scotty!");
         }
 
-        public List<Gossip> GetGossipsForBlog(Blog blog)
+        public virtual List<Gossip> GetGossipsForBlog(Blog blog)
         {
             throw new NotImplementedException("hurry up, scotty!");
         }
 
-        public List<Article> GetArticlesForTag(Tag tag)
+        public virtual List<Article> GetArticlesForTag(Tag tag)
         {
             throw new NotImplementedException("hurry up, scotty!");
         }
 
-        public List<Gossip> GetGossipsForTag(Tag tag)
+        public virtual List<Gossip> GetGossipsForTag(Tag tag)
         {
             throw new NotImplementedException("hurry up, scotty!");
         }

@@ -120,4 +120,7 @@
   <data name="exMsg_EmptyWriterID" xml:space="preserve">
     <value>invalid writer identification</value>
   </data>
+  <data name="exMsg_ObjectCanUpdateOnlyItself" xml:space="preserve">
+    <value>object can only update itself</value>
+  </data>
 </root>

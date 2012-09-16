@@ -156,8 +156,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="entlib.config">
-      <SubType>Designer</SubType>
+    <Content Include="..\config\entlib.config">
+      <Link>entlib.config</Link>
     </Content>
   </ItemGroup>
   <PropertyGroup>

@@ -34,6 +34,7 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0-rc\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -51,6 +52,7 @@
     <Compile Include="Blog.cs" />
     <Compile Include="BloggingContext.cs" />
     <Compile Include="Comment.cs" />
+    <Compile Include="EntityBase.cs" />
     <Compile Include="Entry.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Gossip.cs" />

@@ -14,7 +14,7 @@ namespace Console
             using (var ctx = new BloggingContext())
             {
                 var query = ctx.Blogs.ToList();
-                if (query == null || query.Count == 0)
+                if (query.Count == 0)
                 {
                     System.Console.WriteLine("No Blogs found.");
                 }
