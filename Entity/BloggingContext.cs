@@ -9,8 +9,8 @@ namespace ScottyApps.ScottyBlogging.Entity
 {
     public class BloggingContext : DbContext
     {
-        public BloggingContext()
-            : base("Blogging")
+        public BloggingContext(string connStr)
+            : base(connStr)
         {
             Database.SetInitializer<BloggingContext>(new BloggingInitializer());
         }

@@ -12,18 +12,15 @@ namespace ScottyApps.Utilities.EntlibExtensions
 {
     public static class UnityContainerExtensions
     {
-        public static IUnityContainer LoadConfiguration2(this IUnityContainer container,
-    string filePath)
-        {
-            return container.LoadConfiguration2(filePath, "unity", "");
-        }
-        public static IUnityContainer LoadConfiguration2(this IUnityContainer container,
+        public static IUnityContainer LoadConfiguration(this IUnityContainer container,
             string filePath, string unitySectionName = "unity", string containerName = "")
         {
             Guard.ArgumentNotNullOrEmpty(filePath, "filePath");
 
-            var config = ConfigurationManager.OpenExeConfiguration(filePath);
+            var fileMap = new ExeConfigurationFileMap { ExeConfigFilename = filePath };
+            var config = ConfigurationManager.OpenMappedExeConfiguration(fileMap, ConfigurationUserLevel.None);
             var section = (UnityConfigurationSection)config.GetSection(unitySectionName);
+
             return container.LoadConfiguration(section, containerName);
         }
     }
