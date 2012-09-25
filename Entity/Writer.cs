@@ -5,8 +5,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Security.Cryptography;
+using Microsoft.Practices.Unity;
 using ScottyApps.ScottyBlogging.Resx;
 using ScottyApps.Utilities.DbContextExtentions;
+using ScottyApps.Utilities.EntlibExtensions;
 
 namespace ScottyApps.ScottyBlogging.Entity
 {
@@ -28,7 +30,7 @@ namespace ScottyApps.ScottyBlogging.Entity
 
         public RegisterStatus Register()
         {
-            using (BloggingContext ctx = new BloggingContext())
+            using (var ctx = EntlibUtils.Container.Resolve<BloggingContext>())
             {
                 var existingWriter = ctx.Writers.Single(w => w.Email == this.Email);
                 if (existingWriter != null)
@@ -49,7 +51,7 @@ namespace ScottyApps.ScottyBlogging.Entity
         }
         public UserValidationStatus Validate()
         {
-            using (BloggingContext ctx = new BloggingContext())
+            using (var ctx = EntlibUtils.Container.Resolve<BloggingContext>())
             {
                 var existingWriter = ctx.Writers.Single(w => w.Email == this.Email);
                 if (existingWriter == null)

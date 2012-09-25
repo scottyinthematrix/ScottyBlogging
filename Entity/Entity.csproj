@@ -12,6 +12,7 @@
     <AssemblyName>ScottyApps.ScottyBlogging.Entity</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,9 +31,11 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0-rc\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -73,6 +77,10 @@
     <ProjectReference Include="..\DbContextExtentions\DbContextExtentions.csproj">
       <Project>{29f2804f-de5c-441c-bdaa-57582fad30f8}</Project>
       <Name>DbContextExtentions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntlibExtensions\EntlibExtensions.csproj">
+      <Project>{5e6271d1-1d20-48f0-83f1-1f9be3db43c8}</Project>
+      <Name>EntlibExtensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\Resx\Resx.csproj">
       <Project>{97763a38-1564-4b88-8857-142c244aa595}</Project>

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Practices.Unity;
 using ScottyApps.ScottyBlogging.Entity;
+using ScottyApps.Utilities.EntlibExtensions;
 
 namespace ScottyApps.ScottyBlogging.Biz
 {
@@ -20,7 +22,16 @@ namespace ScottyApps.ScottyBlogging.Biz
 
         public virtual List<Blog> GetBlogsForWriter(Writer writer)
         {
-            throw new NotImplementedException("hurry up, scotty!");
+            var container = EntlibUtils.Container;
+
+            using(var ctx = container.Resolve<BloggingContext>())
+            {
+                var query = from b in ctx.Blogs.Include("Writer")
+                            where b.Writer.Email == writer.Email
+                            select b;
+
+                return query.ToList();
+            }
         }
 
         public virtual List<Article> GetArticlesForBlog(Blog blog)

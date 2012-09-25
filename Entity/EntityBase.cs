@@ -4,7 +4,9 @@ using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using Microsoft.Practices.Unity;
 using ScottyApps.ScottyBlogging.Resx;
+using ScottyApps.Utilities.EntlibExtensions;
 
 namespace ScottyApps.ScottyBlogging.Entity
 {
@@ -12,7 +14,7 @@ namespace ScottyApps.ScottyBlogging.Entity
     {
         public virtual void AddToStore()
         {
-            using (var context = new BloggingContext())
+            using (var context = EntlibUtils.Container.Resolve<BloggingContext>())
             {
                 context.Set(this.GetType()).Add(this);
                 context.SaveChanges();
@@ -21,7 +23,7 @@ namespace ScottyApps.ScottyBlogging.Entity
 
         public virtual void UpdateToStore()
         {
-            using (var context = new BloggingContext())
+            using (var context = EntlibUtils.Container.Resolve<BloggingContext>())
             {
                 context.Set(this.GetType()).Attach(this);
                 context.Entry(this).State = EntityState.Modified;
@@ -39,7 +41,7 @@ namespace ScottyApps.ScottyBlogging.Entity
                 throw new InvalidOperationException(ScottyBloggingResx.exMsg_ObjectCanUpdateOnlyItself);
             }
 
-            using (var context = new BloggingContext())
+            using (var context = EntlibUtils.Container.Resolve<BloggingContext>())
             {
                 context.Set(this.GetType()).Attach(this);
                 var entry = context.Entry(entity);
@@ -58,7 +60,7 @@ namespace ScottyApps.ScottyBlogging.Entity
 
         public virtual void DeleteFromStore()
         {
-            using (var context = new BloggingContext())
+            using (var context = EntlibUtils.Container.Resolve<BloggingContext>())
             {
                 context.Set(this.GetType()).Attach(this);
                 context.Entry(this).State = EntityState.Deleted;
