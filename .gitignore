@@ -2,7 +2,7 @@
 ## custom
 #################
 #lib/Entlib/*.dll
-#lib/Entlib/*.xml
+lib/Entlib/*.xml
 lib/Json.Net/*.dll
 lib/Json.Net/*.xml
 lib/Moq/*.dll
