@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using Microsoft.Practices.Unity;
+using Newtonsoft.Json;
 using ScottyApps.ScottyBlogging.Resx;
 using ScottyApps.Utilities.EntlibExtensions;
 
@@ -67,6 +68,14 @@ namespace ScottyApps.ScottyBlogging.Entity
 
                 context.SaveChanges();
             }
+        }
+
+        public override string ToString()
+        {
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+
+            return JsonConvert.SerializeObject(this, Formatting.Indented, settings);
         }
     }
 }

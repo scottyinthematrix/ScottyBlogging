@@ -38,7 +38,7 @@ namespace ScottyApps.Utilities.EntlibExtensions
             container.LoadConfiguration(section, containerName);
         }
 
-        public static void InitEnterpriseLibraryContainer(IUnityContainer container, string filePath)
+        private static void InitEnterpriseLibraryContainer(IUnityContainer container, string filePath)
         {
             // as a reference for EnterpriseLibraryContainer
             var configurator = new UnityContainerConfigurator(container);
@@ -48,5 +48,45 @@ namespace ScottyApps.Utilities.EntlibExtensions
             EnterpriseLibraryContainer.Current = locator;
         }
 
+        /// <summary>
+        /// resolve and mapping from an existing object
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="container"></param>
+        /// <param name="existingObject"></param>
+        /// <param name="name"></param>
+        /// <param name="overrides"></param>
+        /// <returns></returns>
+        public static T Resolve<T>(this IUnityContainer container, T existingObject, string name, params ResolverOverride[] overrides)
+            where T : class
+        {
+            var interceptedObject = container.Resolve<T>(name, overrides);
+
+            if (existingObject != null)
+            {
+                AutoMapper.Mapper.Map(existingObject, interceptedObject);
+            }
+
+            return interceptedObject;
+        }
+        /// <summary>
+        /// resolve and mapping from an existing object
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="container"></param>
+        /// <param name="existingObject"></param>
+        /// <param name="overrides"></param>
+        /// <returns></returns>
+        public static T Resolve<T>(this IUnityContainer container, T existingObject, params ResolverOverride[] overrides)
+        {
+            var interceptedObject = container.Resolve<T>(overrides);
+
+            if (existingObject != null)
+            {
+                AutoMapper.Mapper.Map(existingObject, interceptedObject);
+            }
+
+            return interceptedObject;
+        }
     }
 }

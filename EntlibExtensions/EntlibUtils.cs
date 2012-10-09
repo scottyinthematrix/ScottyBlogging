@@ -22,6 +22,6 @@ namespace ScottyApps.Utilities.EntlibExtensions
             Container.LoadConfiguration(filePath);
         }
 
-        public static IUnityContainer Container { get; /*private */set; }
+        public static IUnityContainer Container { get; private set; }
     }
 }

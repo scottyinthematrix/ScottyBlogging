@@ -8,6 +8,7 @@ using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using Microsoft.Practices.Unity.InterceptionExtension;
 using Microsoft.Practices.Unity.InterceptionExtension.Configuration;
+using Newtonsoft.Json;
 using ScottyApps.ScottyBlogging.Biz;
 using ScottyApps.ScottyBlogging.Entity;
 using ScottyApps.Utilities.EntlibExtensions;
@@ -18,6 +19,15 @@ namespace Console
     {
         static void Main(string[] args)
         {
+            //var obj = new { FirstName = "scotty", LastName = "yang" };
+            //var obj2 = new Blog { ID = Guid.NewGuid().ToString(), Name = "scottyinthematrix", Url = "www.g.cn" };
+            //var s = JsonConvert.SerializeObject(obj2);
+            //System.Console.WriteLine(s);
+            //var s2 = JsonConvert.ToString(obj2);
+            //System.Console.WriteLine(s2);
+
+            //return;
+
             string filePath = ConfigurationManager.AppSettings["EntlibConfigPath"];
             EntlibUtils.InitializeUnityContainer(filePath);
             //IUnityContainer container = new UnityContainer();
@@ -55,7 +65,19 @@ namespace Console
 
                 var biz = container.Resolve<BloggingBiz>();
                 var blogs = biz.GetBlogsForWriter(new Writer { Email = "scotty.cn@gmail.com" });
-                System.Console.WriteLine(blogs.Count);
+
+                if (blogs == null || blogs.Count == 0)
+                {
+                    System.Console.WriteLine("no blogs found.");
+                    return;
+                }
+
+                var blog = blogs[0];
+                System.Console.WriteLine(blog.ToString());
+
+                var interceptedObj = EntlibUtils.Container.Resolve<Blog>(blog);
+                interceptedObj.Url = "http://www.g.cn";
+                interceptedObj.UpdateToStore();
             }
         }
     }
