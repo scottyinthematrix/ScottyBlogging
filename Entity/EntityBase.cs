@@ -8,9 +8,27 @@ using Microsoft.Practices.Unity;
 using Newtonsoft.Json;
 using ScottyApps.ScottyBlogging.Resx;
 using ScottyApps.Utilities.EntlibExtensions;
+using ScottyApps.Utilities.DbContextExtentions;
 
 namespace ScottyApps.ScottyBlogging.Entity
 {
+    public static class EntityBaseExtension
+    {
+        public static void UpdateToStore<TEntity>(this TEntity entity,
+                                                  params Expression<Func<TEntity, object>>[] dirtyFields)
+            where TEntity : EntityBase
+        {
+            if (entity == null)
+            {
+                throw new ArgumentNullException("entity");
+            }
+
+            using (var context = EntlibUtils.Container.Resolve<BloggingContext>())
+            {
+                context.Update(entity, dirtyFields);
+            }
+        }
+    }
     public class EntityBase
     {
         public virtual void AddToStore()
@@ -18,43 +36,6 @@ namespace ScottyApps.ScottyBlogging.Entity
             using (var context = EntlibUtils.Container.Resolve<BloggingContext>())
             {
                 context.Set(this.GetType()).Add(this);
-                context.SaveChanges();
-            }
-        }
-
-        public virtual void UpdateToStore()
-        {
-            using (var context = EntlibUtils.Container.Resolve<BloggingContext>())
-            {
-                context.Set(this.GetType()).Attach(this);
-                context.Entry(this).State = EntityState.Modified;
-
-                context.SaveChanges();
-            }
-        }
-        // TODO should be improved for elegancy
-        protected virtual void UpdateToStore<TEntity>(params Expression<Func<TEntity, object>>[] dirtyFields)
-            where TEntity : EntityBase
-        {
-            var entity = this as TEntity;
-            if (entity == null)
-            {
-                throw new InvalidOperationException(ScottyBloggingResx.exMsg_ObjectCanUpdateOnlyItself);
-            }
-
-            using (var context = EntlibUtils.Container.Resolve<BloggingContext>())
-            {
-                context.Set(this.GetType()).Attach(this);
-                var entry = context.Entry(entity);
-
-                if (dirtyFields != null && dirtyFields.Length > 0)
-                {
-                    dirtyFields.ToList().ForEach(expr =>
-                                                     {
-                                                         var propName = ((MemberExpression)expr.Body).Member.Name;
-                                                         entry.Property(propName).IsModified = true;
-                                                     });
-                }
                 context.SaveChanges();
             }
         }
