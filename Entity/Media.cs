@@ -12,7 +12,7 @@ namespace ScottyApps.ScottyBlogging.Entity
         [MaxLength(500)]
         public string Path { get; set; }
 
-        public MediaGroup MediaGroup { get; set; }
+        public virtual MediaGroup MediaGroup { get; set; }
 
         public override void AddToStore()
         {

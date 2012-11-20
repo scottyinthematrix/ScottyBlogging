@@ -12,6 +12,7 @@ namespace ScottyApps.ScottyBlogging.Entity
         public BloggingContext(string connStr)
             : base(connStr)
         {
+            this.Configuration.LazyLoadingEnabled = false;
             Database.SetInitializer<BloggingContext>(new BloggingInitializer());
         }
 

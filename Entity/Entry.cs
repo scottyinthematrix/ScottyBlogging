@@ -18,15 +18,15 @@ namespace ScottyApps.ScottyBlogging.Entity
         [MaxLength(int.MaxValue)]
         public string Body { get; set; }
 
-        public Writer Writer { get; set; }
+        public virtual Writer Writer { get; set; }
 
-        public ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
 
         public string PermUrl { get; set; }
 
-        public Blog Blog { get; set; }
+        public virtual Blog Blog { get; set; }
 
-        public ICollection<Tag> Tags { get; set; }
+        public virtual ICollection<Tag> Tags { get; set; }
 
         public override void AddToStore()
         {

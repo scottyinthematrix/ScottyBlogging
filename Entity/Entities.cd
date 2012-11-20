@@ -11,7 +11,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgCAAAAAAAAQAAAAAAAAACAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgCAAAAAAAAQAAABAAAAACAAAAAEAAAA=</HashCode>
       <FileName>Blog.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -24,7 +24,7 @@
   <Class Name="ScottyApps.ScottyBlogging.Entity.Writer">
     <Position X="3.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACIAgCAAAAAAAAAAAEAAAAACAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACKAgCAAAAAAAAAAAEBBAAACAAAAAAAAAAA=</HashCode>
       <FileName>Writer.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -57,7 +57,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAIAAAAAAAAgAAAAAABgAAAAAAIAEAAAAABAAEAIAA=</HashCode>
+      <HashCode>AAAIAAAAAAAAgAAAAAABgAAAAABIAEAAAAABAAEAIAA=</HashCode>
       <FileName>Entry.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -71,15 +71,7 @@
   </Class>
   <Class Name="ScottyApps.ScottyBlogging.Entity.Comment">
     <Position X="3.5" Y="5" Width="1.5" />
-    <AssociationLine Name="TargetEntry" Type="ScottyApps.ScottyBlogging.Entity.Entry" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="4.562" Y="5" />
-        <Point X="4.562" Y="4.422" />
-        <Point X="4.823" Y="4.422" Type="JumpStart" />
-        <Point X="4.99" Y="4.422" Type="JumpEnd" />
-        <Point X="6.125" Y="4.422" />
-        <Point X="6.125" Y="3.862" />
-      </Path>
+    <AssociationLine Name="TargetEntry" Type="ScottyApps.ScottyBlogging.Entity.Entry">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.06" Y="0.318" />
       </MemberNameLabel>
@@ -126,21 +118,24 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="ScottyApps.ScottyBlogging.Entity.MediaGroup">
-    <Position X="1.75" Y="7.5" Width="1.5" />
+    <Position X="1" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAggAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAggAAAAAAAAAQAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>MediaGroup.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Medias" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="ScottyApps.ScottyBlogging.Entity.Media">
     <Position X="4" Y="7.5" Width="1.5" />
     <AssociationLine Name="MediaGroup" Type="ScottyApps.ScottyBlogging.Entity.MediaGroup">
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.247" Y="-1.161" />
+        <Position X="0.059" Y="-0.338" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAIAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAIAAAAAAAAAAABAAAAAAAAAAAACAAA=</HashCode>
       <FileName>Media.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

@@ -26,7 +26,7 @@ namespace ScottyApps.ScottyBlogging.Biz
 
             using(var ctx = container.Resolve<BloggingContext>())
             {
-                var query = from b in ctx.Blogs.Include("Writer")
+                var query = from b in ctx.Blogs.Include("Writer").AsNoTracking()
                             where b.Writer.Email == writer.Email
                             select b;
 

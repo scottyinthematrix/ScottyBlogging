@@ -13,5 +13,7 @@ namespace ScottyApps.ScottyBlogging.Entity
         public string Name { get; set; }
         [MaxLength(500)]
         public int Description { get; set; }
+
+        public virtual ICollection<Media> Medias { get; set; }
     }
 }

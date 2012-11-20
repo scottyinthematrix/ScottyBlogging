@@ -5,6 +5,6 @@ namespace ScottyApps.ScottyBlogging.Entity
     [DataContract(IsReference = true)]
     public class Comment : Entry
     {
-        public Entry TargetEntry { get; set; }
+        public virtual Entry TargetEntry { get; set; }
     }
 }

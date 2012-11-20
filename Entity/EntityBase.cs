@@ -11,6 +11,7 @@ using ScottyApps.Utilities.EntlibExtensions;
 
 namespace ScottyApps.ScottyBlogging.Entity
 {
+    [Serializable]
     public class EntityBase
     {
         public virtual void AddToStore()
@@ -70,12 +71,12 @@ namespace ScottyApps.ScottyBlogging.Entity
             }
         }
 
-        public override string ToString()
-        {
-            JsonSerializerSettings settings = new JsonSerializerSettings();
-            settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+        //public override string ToString()
+        //{
+        //    JsonSerializerSettings settings = new JsonSerializerSettings();
+        //    settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
 
-            return JsonConvert.SerializeObject(this, Formatting.Indented, settings);
-        }
+        //    return JsonConvert.SerializeObject(this, Formatting.Indented, settings);
+        //}
     }
 }
