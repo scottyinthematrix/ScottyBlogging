@@ -79,9 +79,5 @@ namespace ScottyApps.ScottyBlogging.Entity
             }
             base.AddToStore();
         }
-        public override void UpdateToStore()
-        {
-            base.UpdateToStore<Writer>(w => w.Alias);
-        }
     }
 }

@@ -70,9 +70,9 @@ namespace Console
             blog.Writer.Alias = "scotty";
             System.Console.WriteLine(blog.ToString());
 
-            var interceptedObj = blog;// EntlibUtils.Container.Resolve<Blog>(blog);
-            interceptedObj.Url = "http://www.scottyinthematrix.com";
-            interceptedObj.UpdateToStore();
+			var interceptedObj = EntlibUtils.Container.Resolve<Blog>(blog);
+			interceptedObj.Url = "http://www.g.cn";
+			interceptedObj.UpdateToStore(b => b.Url);
         }
     }
 }
