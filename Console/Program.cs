@@ -56,10 +56,29 @@ namespace Console
             //    System.Console.WriteLine("{0} blogs found.", query.Count);
             //}
 
-            using(var ctx = container.Resolve<BloggingContext>())
+            //using(var ctx = container.Resolve<BloggingContext>())
+            //{
+            //    int rows = ctx.Blogs.Delete(b => b.ID == "hello");
+            //}
+
+            using (var ctx = container.Resolve<BloggingContext>())
             {
-                int rows = ctx.Blogs.Delete(b => b.ID == "hello");
+                var query = from t in ctx.Tags
+                            where t.ParentTag.Name == "Web"
+                            orderby t.Name, t.Description descending
+                            select t;
+                var query2 = from t in ctx.Tags
+                             where t.ParentTag.Name == "Web"
+                             select t;
+                int count;
+                //var result = query.ToPagedList(2, 1, out count);
+                var result = query2.ToPagedList<Tag, dynamic>(
+                    2, 1, out count,
+                    new OrderByExp<Tag, dynamic> { Expression = t => t.Name },
+                    new OrderByExp<Tag, dynamic> { Expression = t => t.Description, IsDecending = true });
             }
+
+
             return;
             var biz = container.Resolve<BloggingBiz>();
             var blogs = biz.GetBlogsForWriter(new Writer { Email = "scotty.cn@gmail.com" });
@@ -75,9 +94,9 @@ namespace Console
             blog.Writer.Alias = "scotty";
             System.Console.WriteLine(blog.ToString());
 
-			var interceptedObj = EntlibUtils.Container.Resolve<Blog>(blog);
-			interceptedObj.Url = "http://www.g.cn";
-			interceptedObj.UpdateToStore(b => b.Url);
+            var interceptedObj = EntlibUtils.Container.Resolve<Blog>(blog);
+            interceptedObj.Url = "http://www.g.cn";
+            interceptedObj.UpdateToStore(b => b.Url);
         }
     }
 }
