@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 using ScottyApps.ScottyBlogging.Biz;
 using ScottyApps.ScottyBlogging.Entity;
 using ScottyApps.Utilities.EntlibExtensions;
-
+using ScottyApps.Utilities.DbContextExtentions;
 namespace Console
 {
     class Program
@@ -56,6 +56,11 @@ namespace Console
             //    System.Console.WriteLine("{0} blogs found.", query.Count);
             //}
 
+            using(var ctx = container.Resolve<BloggingContext>())
+            {
+                int rows = ctx.Blogs.Delete(b => b.ID == "hello");
+            }
+            return;
             var biz = container.Resolve<BloggingBiz>();
             var blogs = biz.GetBlogsForWriter(new Writer { Email = "scotty.cn@gmail.com" });
 
