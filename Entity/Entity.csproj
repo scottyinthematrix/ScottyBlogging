@@ -62,7 +62,6 @@
     <Compile Include="Blog.cs" />
     <Compile Include="BloggingContext.cs" />
     <Compile Include="Comment.cs" />
-    <Compile Include="EntityBase.cs" />
     <Compile Include="Entry.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Gossip.cs" />

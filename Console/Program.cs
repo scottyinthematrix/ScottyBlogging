@@ -96,7 +96,7 @@ namespace Console
 
             var interceptedObj = EntlibUtils.Container.Resolve<Blog>(blog);
             interceptedObj.Url = "http://www.g.cn";
-            interceptedObj.UpdateToStore(b => b.Url);
+            interceptedObj.UpdateToStore<BloggingContext>(b => b.Url);
         }
     }
 }

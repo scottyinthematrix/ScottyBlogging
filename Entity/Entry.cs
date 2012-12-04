@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Runtime.Serialization;
+using ScottyApps.Utilities.DbContextExtentions;
 
 namespace ScottyApps.ScottyBlogging.Entity
 {
@@ -28,15 +30,12 @@ namespace ScottyApps.ScottyBlogging.Entity
 
         public virtual ICollection<Tag> Tags { get; set; }
 
-        public override void AddToStore()
+        public override void AddToStore<TContext>()
         {
-            if(string.IsNullOrEmpty(this.ID))
-            {
-                this.ID = Guid.NewGuid().ToString();
-            }
+            this.ID = string.IsNullOrEmpty(this.ID) ? Guid.NewGuid().ToString() : this.ID;
             this.CreateDate = DateTime.Now;
 
-            base.AddToStore();
+            base.AddToStore<TContext>();
         }
     }
 }

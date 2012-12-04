@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Security.Cryptography;
@@ -71,13 +72,10 @@ namespace ScottyApps.ScottyBlogging.Entity
             }
         }
 
-        public override void AddToStore()
+        public override void AddToStore<TContext>()
         {
-            if(string.IsNullOrEmpty(this.ID))
-            {
-                this.ID = Guid.NewGuid().ToString();
-            }
-            base.AddToStore();
+            this.ID = string.IsNullOrEmpty(this.ID) ? Guid.NewGuid().ToString() : this.ID;
+            base.AddToStore<TContext>();
         }
     }
 }

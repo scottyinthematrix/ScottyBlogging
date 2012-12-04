@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
+using ScottyApps.Utilities.DbContextExtentions;
 
 namespace ScottyApps.ScottyBlogging.Entity
 {
@@ -14,14 +16,10 @@ namespace ScottyApps.ScottyBlogging.Entity
 
         public virtual MediaGroup MediaGroup { get; set; }
 
-        public override void AddToStore()
+        public override void AddToStore<TContext>()
         {
-            if(string.IsNullOrEmpty(this.ID))
-            {
-                this.ID = Guid.NewGuid().ToString();
-            }
-
-            base.AddToStore();
+            this.ID = string.IsNullOrEmpty(this.ID) ? Guid.NewGuid().ToString() : this.ID;
+            base.AddToStore<TContext>();
         }
     }
 }
