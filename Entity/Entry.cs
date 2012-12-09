@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Data.Entity;
 using System.Runtime.Serialization;
-using ScottyApps.Utilities.DbContextExtentions;
 
 namespace ScottyApps.ScottyBlogging.Entity
 {
     [DataContract(IsReference = true)]
-    public class Entry : EntityBase
+    public class Entry
     {
         [Key]
         public string ID { get; set; }
@@ -29,13 +27,5 @@ namespace ScottyApps.ScottyBlogging.Entity
         public virtual Blog Blog { get; set; }
 
         public virtual ICollection<Tag> Tags { get; set; }
-
-        public override void AddToStore<TContext>()
-        {
-            this.ID = string.IsNullOrEmpty(this.ID) ? Guid.NewGuid().ToString() : this.ID;
-            this.CreateDate = DateTime.Now;
-
-            base.AddToStore<TContext>();
-        }
     }
 }

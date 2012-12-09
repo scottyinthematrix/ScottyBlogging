@@ -78,6 +78,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\Json.Net\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PowerCollections">
+      <HintPath>..\..\DbContextExtensions\bin\Debug\PowerCollections.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -103,21 +106,21 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DbContextExtensions\DbContextExtensions.csproj">
+      <Project>{a0ffb978-5ca5-447f-bd9f-03f1c25911b1}</Project>
+      <Name>DbContextExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EntlibExtensions\EntlibExtensions.csproj">
+      <Project>{2262b2db-30e3-4a07-8c99-b9616b3371a1}</Project>
+      <Name>EntlibExtensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Biz\Biz.csproj">
       <Project>{4351C5C9-4EE1-4360-91DC-8BEE97A554B2}</Project>
       <Name>Biz</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DbContextExtentions\DbContextExtentions.csproj">
-      <Project>{29F2804F-DE5C-441C-BDAA-57582FAD30F8}</Project>
-      <Name>DbContextExtentions</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Entity\Entity.csproj">
       <Project>{f8a63905-97d5-4270-89ac-b46da1b85ed5}</Project>
       <Name>Entity</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EntlibExtensions\EntlibExtensions.csproj">
-      <Project>{5e6271d1-1d20-48f0-83f1-1f9be3db43c8}</Project>
-      <Name>EntlibExtensions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

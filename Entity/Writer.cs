@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Security.Cryptography;
 using Microsoft.Practices.Unity;
-using ScottyApps.ScottyBlogging.Resx;
-using ScottyApps.Utilities.DbContextExtentions;
 using ScottyApps.Utilities.EntlibExtensions;
 
 namespace ScottyApps.ScottyBlogging.Entity
 {
     [DataContract(IsReference = true)]
-    public class Writer : EntityBase
+    public class Writer
     {
         [Key]
         public string ID { get; set; }
@@ -70,12 +65,6 @@ namespace ScottyApps.ScottyBlogging.Entity
                     return UserValidationStatus.WrongPassword;
                 }
             }
-        }
-
-        public override void AddToStore<TContext>()
-        {
-            this.ID = string.IsNullOrEmpty(this.ID) ? Guid.NewGuid().ToString() : this.ID;
-            base.AddToStore<TContext>();
         }
     }
 }

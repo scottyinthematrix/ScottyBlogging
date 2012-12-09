@@ -79,12 +79,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DbContextExtentions\DbContextExtentions.csproj">
-      <Project>{29f2804f-de5c-441c-bdaa-57582fad30f8}</Project>
-      <Name>DbContextExtentions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EntlibExtensions\EntlibExtensions.csproj">
-      <Project>{5e6271d1-1d20-48f0-83f1-1f9be3db43c8}</Project>
+    <ProjectReference Include="..\..\EntlibExtensions\EntlibExtensions.csproj">
+      <Project>{2262B2DB-30E3-4A07-8C99-B9616B3371A1}</Project>
       <Name>EntlibExtensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\Resx\Resx.csproj">

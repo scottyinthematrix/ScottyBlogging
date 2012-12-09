@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Practices.Unity;
@@ -13,6 +15,8 @@ using ScottyApps.ScottyBlogging.Biz;
 using ScottyApps.ScottyBlogging.Entity;
 using ScottyApps.Utilities.EntlibExtensions;
 using ScottyApps.Utilities.DbContextExtentions;
+using Wintellect.PowerCollections;
+
 namespace Console
 {
     class Program
@@ -61,25 +65,28 @@ namespace Console
             //    int rows = ctx.Blogs.Delete(b => b.ID == "hello");
             //}
 
-            using (var ctx = container.Resolve<BloggingContext>())
-            {
-                var query = from t in ctx.Tags
-                            where t.ParentTag.Name == "Web"
-                            orderby t.Name, t.Description descending
-                            select t;
-                var query2 = from t in ctx.Tags
-                             where t.ParentTag.Name == "Web"
-                             select t;
-                int count;
-                //var result = query.ToPagedList(2, 1, out count);
-                var result = query2.ToPagedList<Tag, dynamic>(
-                    2, 1, out count,
-                    new OrderByExp<Tag, dynamic> { Expression = t => t.Name },
-                    new OrderByExp<Tag, dynamic> { Expression = t => t.Description, IsDecending = true });
-            }
+            #region Test for Paging
+
+            //using (var ctx = container.Resolve<BloggingContext>())
+            //{
+            //    var query = from t in ctx.Tags
+            //                where t.ParentTag.Name == "Web"
+            //                orderby t.Name, t.Description descending
+            //                select t;
+            //    var query2 = from t in ctx.Tags
+            //                 where t.ParentTag.Name == "Web"
+            //                 select t;
+            //    int count;
+            //    //var result = query.ToPagedList(2, 1, out count);
+            //    var result = query2.ToPagedList<Tag>(
+            //        2, 1, out count,
+            //        new Pair<Expression<Func<Tag, dynamic>>, bool>(t => t.Name, false),
+            //        new Pair<Expression<Func<Tag, dynamic>>, bool>(t => t.Description, true));
+            //}
+
+            #endregion
 
 
-            return;
             var biz = container.Resolve<BloggingBiz>();
             var blogs = biz.GetBlogsForWriter(new Writer { Email = "scotty.cn@gmail.com" });
 
@@ -90,13 +97,23 @@ namespace Console
             }
 
             var blog = blogs[0];
-            // very interesting, and very dangerous!
+            blog.Url = "http://cn.bing.com";
             blog.Writer.Alias = "scotty";
-            System.Console.WriteLine(blog.ToString());
 
-            var interceptedObj = EntlibUtils.Container.Resolve<Blog>(blog);
-            interceptedObj.Url = "http://www.g.cn";
-            interceptedObj.UpdateToStore<BloggingContext>(b => b.Url);
+            using (var ctx = container.Resolve<BloggingContext>())
+            {
+                var triples = new List<Triple<object, EntityState, string[]>>
+                {
+                    new Triple<object, EntityState, string[]>(blog, EntityState.Modified, new string[]{"Url"}),
+                    new Triple<object, EntityState, string[]>(blog.Writer, EntityState.Modified, new string[]{"Alias"})
+                };
+                ctx.SaveChanges<BloggingContext>(triples);
+            }
+
+            //var interceptedObj = EntlibUtils.Container.Resolve<Blog>(blog);
+            //interceptedObj.Url = "http://www.g.cn";
+            //interceptedObj.UpdateToStore<BloggingContext>(b => b.Url);
+            return;
         }
     }
 }
