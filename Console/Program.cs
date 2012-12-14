@@ -97,17 +97,17 @@ namespace Console
             }
 
             var blog = blogs[0];
-            blog.Url = "http://cn.bing.com";
+            blog.Url = "http://www.baidu.com";
             blog.Writer.Alias = "scotty";
 
             using (var ctx = container.Resolve<BloggingContext>())
             {
                 var triples = new List<Triple<object, EntityState, string[]>>
                 {
-                    new Triple<object, EntityState, string[]>(blog, EntityState.Modified, new string[]{"Url"}),
-                    new Triple<object, EntityState, string[]>(blog.Writer, EntityState.Modified, new string[]{"Alias"})
+                    new Triple<object, EntityState, string[]>(blog, EntityState.Modified, new[]{"Url"}),
+                    new Triple<object, EntityState, string[]>(blog.Writer, EntityState.Modified, new[]{"Alias"})
                 };
-                ctx.SaveChanges<BloggingContext>(triples);
+                ctx.SaveChanges(triples);
             }
 
             //var interceptedObj = EntlibUtils.Container.Resolve<Blog>(blog);
