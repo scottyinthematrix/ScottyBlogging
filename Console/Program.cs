@@ -16,6 +16,7 @@ using ScottyApps.ScottyBlogging.Entity;
 using ScottyApps.Utilities.EntlibExtensions;
 using ScottyApps.Utilities.DbContextExtentions;
 using Wintellect.PowerCollections;
+using System.Security.Permissions;
 
 namespace Console
 {
@@ -23,10 +24,10 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            AutoMapper.Mapper.Initialize(cfg =>
-                {
-                    cfg.CreateMap<Blog, Blog>();
-                });
+            //AutoMapper.Mapper.Initialize(cfg =>
+            //    {
+            //        cfg.CreateMap<Blog, Blog>();
+            //    });
             string filePath = ConfigurationManager.AppSettings["EntlibConfigPath"];
             EntlibUtils.InitializeUnityContainer(filePath);
             //IUnityContainer container = new UnityContainer();
@@ -97,8 +98,8 @@ namespace Console
             }
 
             var blog = blogs[0];
-            blog.Url = "http://www.baidu.com";
-            blog.Writer.Alias = "scotty";
+            blog.Url = "v.youku.com";
+            blog.Writer.Alias = "juicy";
 
             using (var ctx = container.Resolve<BloggingContext>())
             {
