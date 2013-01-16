@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Edit";
+}
+
+@section scripts {
+    <script src="@Url.Content("~/Scripts/ckeditor/ckeditor.js")"></script>
+    <script src="@Url.Content("~/Scripts/blog/articleEdit.js")"></script>
+}
+
+<h2>@ViewBag.ArticleTitle</h2>
+
+
+<textarea class="ckeditor" cols="100" id="articleEditor" name="articleEditor" rows="10">@ViewBag.ArticleContent</textarea>
