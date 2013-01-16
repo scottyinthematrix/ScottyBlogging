@@ -15,6 +15,7 @@ namespace Mvc
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new JsonRequestBehaviorAttribute());
         }
 
         public static void RegisterRoutes(RouteCollection routes)

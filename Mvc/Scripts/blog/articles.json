@@ -1,0 +1,22 @@
+{
+  "Data": [
+    {
+      "Body": "Cookies can be protected and secured by properly setting the attributes. Please refer to the following solution for an ASP.Net application to configure cookies with the appropriate attribute settings",
+      "ID": "2",
+      "CreateDate": "\/Date(1357660800000)\/",
+      "ModifyDate": "\/Date(1357660800000)\/",
+      "PermUrl": "",
+      "Title": "understanding ASP.NET MVC"
+    },
+    {
+      "Body": "Cookies can be protected and secured by properly setting the attributes. Please refer to the following solution for an ASP.Net application to configure cookies with the appropriate attribute settings",
+      "ID": "1",
+      "CreateDate": "/Date(1357660800000)/",
+      "ModifyDate": "/Date(1357660800000)/",
+      "PermUrl": "",
+      "Title": "understanding ASP.NET"
+    }
+  ],
+  "Errors": null,
+  "Total": 2
+}

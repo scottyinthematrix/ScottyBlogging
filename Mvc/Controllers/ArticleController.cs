@@ -14,13 +14,15 @@ namespace Mvc.Controllers
 
         public ActionResult Index()
         {
-            var articles = new List<Article>
-                               {
-                                   new Article{Body = "test", CreateDate = DateTime.Now, ID=Guid.NewGuid().ToString(),Title = "test title"}
-                               };
-            //ViewBag.Articles = articles;
-            return View(articles);
+            return View();
         }
 
+        public ActionResult Get()
+        {
+            return Json(new { Name = "scotty", Epoch = new DateTime(1970, 1, 1), BirthDate = new DateTime(1981, 7, 10) }, JsonRequestBehavior.AllowGet);
+
+            // NOTE - will generate below json string:
+            // {"Name":"scotty","BirthDate":"\/Date(363542400000)\/"}
+        }
     }
 }

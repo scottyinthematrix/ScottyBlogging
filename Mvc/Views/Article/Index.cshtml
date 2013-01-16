@@ -1,22 +1,13 @@
-﻿@using MvcContrib.UI.Grid
-@using ScottyApps.ScottyBlogging.Entity
-@model List<ScottyApps.ScottyBlogging.Entity.Article>
-
-@{
+﻿@{
     ViewBag.Title = "Articles";
+}
+
+@section scripts {
+    <script src="@Url.Content("~/Scripts/blog/articlelist.js")"></script>
 }
 
 <h2>Index</h2>
 
-@*@Html.Grid(this.Model).Columns(col =>
-                                   {
-                                       col.For(a => a.Body);
-                                       col.For(a => a.CreateDate);
-                                       col.For(a => a.ID);
-                                       col.For(a => a.Title);
-                                   })*@
-@{
-    var grid = new WebGrid(this.Model, canPage: false, canSort: false);
-}
 
-@grid.GetHtml()
+<div id="grid" style="height: 380px"></div>
+<div>something else outside of the grid</div>
