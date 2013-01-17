@@ -4988,7 +4988,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Article\Read.cshtml" />
     <Content Include="Views\Article\Edit.cshtml" />
   </ItemGroup>
@@ -5014,6 +5016,10 @@
     <ProjectReference Include="..\Entity\Entity.csproj">
       <Project>{f8a63905-97d5-4270-89ac-b46da1b85ed5}</Project>
       <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Resx\Resx.csproj">
+      <Project>{97763a38-1564-4b88-8857-142c244aa595}</Project>
+      <Name>Resx</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

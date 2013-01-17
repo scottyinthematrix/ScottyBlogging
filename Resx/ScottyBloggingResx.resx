@@ -123,4 +123,7 @@
   <data name="exMsg_ObjectCanUpdateOnlyItself" xml:space="preserve">
     <value>object can only update itself</value>
   </data>
+  <data name="lable_Article_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
 </root>

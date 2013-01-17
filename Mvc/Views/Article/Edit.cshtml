@@ -1,4 +1,5 @@
-﻿@{
+﻿@using ScottyApps.ScottyBlogging.Resx
+@{
     ViewBag.Title = "Edit";
 }
 
@@ -9,5 +10,13 @@
 
 <h2>@ViewBag.ArticleTitle</h2>
 
-
-<textarea class="ckeditor" cols="100" id="articleEditor" name="articleEditor" rows="10">@ViewBag.ArticleContent</textarea>
+@using (Html.BeginForm("Edit", "Article", FormMethod.Post))
+{
+    @Html.Hidden("articleId", (string)ViewBag.ArticleId)
+    <div>
+        @Html.Label("title", ScottyBloggingResx.lable_Article_Title)
+        @Html.TextBox("title", (string)ViewBag.ArticleTitle)
+    </div>
+    <textarea class="ckeditor" cols="100" id="articleEditor" name="articleEditor" rows="10">@ViewBag.ArticleContent</textarea>
+    <button>submit</button>
+}
