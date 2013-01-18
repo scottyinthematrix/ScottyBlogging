@@ -62,7 +62,7 @@ namespace ScottyApps.ScottyBlogging.Entity
                     new Blog
                     {
                         ID=Guid.NewGuid().ToString(),
-                        Name="Scotty In The Matrix",
+                        Name="scotty-in-the-matrix",
                         Url="http://www.scottyinthematrix.com",
                         Entries=new Collection<Entry>
                         {
@@ -70,7 +70,8 @@ namespace ScottyApps.ScottyBlogging.Entity
                             {
                                 ID = Guid.NewGuid().ToString(),
                                 CreateDate = DateTime.Now,
-                                Title = "welcome",
+                                Title = "<welcome to my blog>",
+                                // TODO body now should refer to a path to the post
                                 Body = "welcome to my blog",
                                 Tags = new Collection<Tag>
                                 {

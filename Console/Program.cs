@@ -13,6 +13,7 @@ using Microsoft.Practices.Unity.InterceptionExtension.Configuration;
 using Newtonsoft.Json;
 using ScottyApps.ScottyBlogging.Biz;
 using ScottyApps.ScottyBlogging.Entity;
+using ScottyApps.Utilities.DbContextExtensions;
 using ScottyApps.Utilities.EntlibExtensions;
 using ScottyApps.Utilities.DbContextExtentions;
 using Wintellect.PowerCollections;

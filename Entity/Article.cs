@@ -24,8 +24,13 @@ namespace ScottyApps.ScottyBlogging.Entity
 
         public string LegalTitle { get; private set; }
 
+        // TODO this is not a perfect solution, how about ',', etc?
         public string FilterTitle()
         {
+            if (string.IsNullOrEmpty(this._title))
+            {
+                return string.Empty;
+            }
             var invalidChars = Path.GetInvalidFileNameChars();
             string escapedInvalidChars = string.Format(
                    "[{0}]",

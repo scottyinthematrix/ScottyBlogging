@@ -1,28 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using Microsoft.Practices.Unity;
 using ScottyApps.ScottyBlogging.Entity;
 using ScottyApps.Utilities.EntlibExtensions;
+using Wintellect.PowerCollections;
+using ScottyApps.Utilities.DbContextExtensions;
 
 namespace ScottyApps.ScottyBlogging.Biz
 {
     public class BloggingBiz
     {
-        #region Finders
         public virtual List<Blog> FindBlogs(/* TODO: accept expression as a predicate builder */)
         {
             throw new NotImplementedException("hurry up, scotty!");
         }
 
-        #endregion
+        public virtual Article GetArticle(string id)
+        {
+            var container = EntlibUtils.Container;
 
+            using (var ctx = container.Resolve<BloggingContext>())
+            {
+                return ctx.Articles.SingleOrDefault(a => a.ID == id);
+            }
+        }
+
+        public virtual Blog GetBlog(string blogName)
+        {
+            using (var ctx = EntlibUtils.Container.Resolve<BloggingContext>())
+            {
+                return ctx.Blogs/*.Include("Writer")*/.SingleOrDefault(b => b.Name.ToLower() == blogName.ToLower());
+            }
+        }
 
         public virtual List<Blog> GetBlogsForWriter(Writer writer)
         {
             var container = EntlibUtils.Container;
 
-            using(var ctx = container.Resolve<BloggingContext>())
+            using (var ctx = container.Resolve<BloggingContext>())
             {
                 var query = from b in ctx.Blogs.Include("Writer").AsNoTracking()
                             where b.Writer.Email == writer.Email
@@ -35,6 +52,18 @@ namespace ScottyApps.ScottyBlogging.Biz
         public virtual List<Article> GetArticlesForBlog(Blog blog)
         {
             throw new NotImplementedException("hurry up, scotty!");
+        }
+        public virtual List<Article> GetArticlesForBlog(string blogName)
+        {
+            var container = EntlibUtils.Container;
+
+            using (var ctx = container.Resolve<BloggingContext>())
+            {
+                var query = from a in ctx.Articles
+                            where a.Blog.Name.ToLower() == blogName.ToLower()
+                            select a;
+                return query.ToList();
+            }
         }
 
         public virtual List<Gossip> GetGossipsForBlog(Blog blog)
@@ -50,6 +79,21 @@ namespace ScottyApps.ScottyBlogging.Biz
         public virtual List<Gossip> GetGossipsForTag(Tag tag)
         {
             throw new NotImplementedException("hurry up, scotty!");
+        }
+
+        public virtual void SaveArticle(Article article, bool isUpdate)
+        {
+            // TODO this defenitely needs improvements, the updated properties should be passed in from outside
+            var container = EntlibUtils.Container;
+            List<Triple<object, EntityState, string[]>> toBeUpdatedEntities = new List<Triple<object, EntityState, string[]>>
+                                                                                  {
+                                                                                      new Triple<object, EntityState, string[]>(article, isUpdate?EntityState.Modified : EntityState.Added, new string[]{"Title", "LegalTitle"}),
+                                                                                      new Triple<object, EntityState, string[]>(article.Blog, EntityState.Unchanged, null)
+                                                                                  };
+            using (var ctx = container.Resolve<BloggingContext>())
+            {
+                ctx.SaveChanges(toBeUpdatedEntities);
+            }
         }
     }
 }

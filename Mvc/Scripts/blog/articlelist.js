@@ -17,7 +17,7 @@ var articleStore = Ext.create('Ext.data.Store', {
 	model: 'Article',
 	proxy: {
 		type: 'ajax',
-		url: getFullUrl('/scripts/blog/articles.json'),
+		url: getFullUrl('Article/List'),
 		reader: {
 			type: 'json',
 			root: 'Data',
@@ -39,6 +39,11 @@ function renderDate(value) {
 	
 }
 
+function renderLink(value) {
+    var url = getFullUrl(Ext.String.format('/Article/Edit/{0}', value));
+    return Ext.String.format('<a href="{0}">Edit</a>', url);
+}
+
 $(document).ready(function() {
 	Ext.create('Ext.grid.Panel', {
 		title: 'articles',
@@ -48,7 +53,8 @@ $(document).ready(function() {
 			{ text: 'Title', dataIndex: 'Title' },
 			{ text: 'Created', dataIndex: 'CreateDate', renderer: renderDate },
 			{ text: 'Last Modified', dataIndex: 'ModifyDate', renderer: renderDate },
-			{ text: 'Content', dataIndex: 'Body' }
+			{ text: 'Content', dataIndex: 'Body' },
+		    { text: '', dataIndex: 'ID', renderer: renderLink }
 		],
 		renderTo: Ext.get('grid')
 	});

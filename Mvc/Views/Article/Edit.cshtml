@@ -10,6 +10,8 @@
 
 <h2>@ViewBag.ArticleTitle</h2>
 
+@* TODO need to plug in more things, such as Tags *@
+
 @using (Html.BeginForm("Edit", "Article", FormMethod.Post))
 {
     @Html.Hidden("articleId", (string)ViewBag.ArticleId)
@@ -17,6 +19,8 @@
         @Html.Label("title", ScottyBloggingResx.lable_Article_Title)
         @Html.TextBox("title", (string)ViewBag.ArticleTitle)
     </div>
-    <textarea class="ckeditor" cols="100" id="articleEditor" name="articleEditor" rows="10">@ViewBag.ArticleContent</textarea>
-    <button>submit</button>
+    <div>
+        <textarea class="ckeditor" cols="100" id="articleEditor" name="articleEditor" rows="10">@ViewBag.ArticleContent</textarea>
+        <button style="float: right;">submit</button>
+    </div>
 }

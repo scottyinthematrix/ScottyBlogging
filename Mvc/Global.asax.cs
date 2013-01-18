@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 using System.Web.Routing;
+using ScottyApps.Utilities.EntlibExtensions;
 
 namespace Mvc
 {
@@ -24,7 +26,7 @@ namespace Mvc
 
             routes.MapRoute(
                 "Default", // Route name
-                "{controller}/{action}/{id}", // URL with parameters
+                "{blog}/{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
 
@@ -32,7 +34,8 @@ namespace Mvc
 
         protected void Application_Start()
         {
-            // TODO Iniate and store the UnityContainer
+            EntlibUtils.InitializeUnityContainer(ConfigHelper.GetEntlibConfigPath());
+
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);

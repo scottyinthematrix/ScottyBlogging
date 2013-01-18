@@ -27,5 +27,10 @@ namespace ScottyApps.ScottyBlogging.Entity
         public virtual Blog Blog { get; set; }
 
         public virtual ICollection<Tag> Tags { get; set; }
+
+        public Entry()
+        {
+            this.ID = Guid.NewGuid().ToString();
+        }
     }
 }

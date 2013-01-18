@@ -39,8 +39,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\Entlib\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
+    <Reference Include="PowerCollections">
+      <HintPath>..\Console\bin\Debug\PowerCollections.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,6 +56,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DbContextExtensions\DbContextExtensions.csproj">
+      <Project>{a0ffb978-5ca5-447f-bd9f-03f1c25911b1}</Project>
+      <Name>DbContextExtensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\EntlibExtensions\EntlibExtensions.csproj">
       <Project>{2262b2db-30e3-4a07-8c99-b9616b3371a1}</Project>
       <Name>EntlibExtensions</Name>
