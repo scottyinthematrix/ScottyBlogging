@@ -32,7 +32,8 @@ namespace ScottyApps.ScottyBlogging.Entity
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
+            //modelBuilder.Entity<Blog>()
+            //            .HasKey(b => b.ID);
             // many-to-many mapping between Entries and Tags
             modelBuilder.Entity<Entry>().
                 HasMany(a => a.Tags)

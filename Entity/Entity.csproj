@@ -34,9 +34,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\EntityFramework\net40\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -76,8 +76,13 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Entities.cd" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DbContextExtensions\DbContextExtensions.csproj">
+      <Project>{A0FFB978-5CA5-447F-BD9F-03F1C25911B1}</Project>
+      <Name>DbContextExtensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\EntlibExtensions\EntlibExtensions.csproj">
       <Project>{2262B2DB-30E3-4A07-8C99-B9616B3371A1}</Project>
       <Name>EntlibExtensions</Name>

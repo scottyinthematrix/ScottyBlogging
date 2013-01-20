@@ -42,9 +42,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\AutoMapper\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\EntityFramework\net40\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -82,6 +82,7 @@
       <HintPath>..\..\DbContextExtensions\bin\Debug\PowerCollections.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
@@ -104,6 +105,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DbContextExtensions\DbContextExtensions.csproj">
@@ -113,10 +115,6 @@
     <ProjectReference Include="..\..\EntlibExtensions\EntlibExtensions.csproj">
       <Project>{2262b2db-30e3-4a07-8c99-b9616b3371a1}</Project>
       <Name>EntlibExtensions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Biz\Biz.csproj">
-      <Project>{4351C5C9-4EE1-4360-91DC-8BEE97A554B2}</Project>
-      <Name>Biz</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entity\Entity.csproj">
       <Project>{f8a63905-97d5-4270-89ac-b46da1b85ed5}</Project>

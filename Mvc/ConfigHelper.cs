@@ -22,7 +22,7 @@ namespace Mvc
                 throw new ArgumentNullException(Key_PostsServerPaths);
             }
 
-            var pathArr = pathStr.Split(';');
+            var pathArr = pathStr.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
             if (pathArr.Length < 2)
             {
                 return pathArr[0];

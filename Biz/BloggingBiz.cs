@@ -83,16 +83,18 @@ namespace ScottyApps.ScottyBlogging.Biz
 
         public virtual void SaveArticle(Article article, bool isUpdate)
         {
-            // TODO this defenitely needs improvements, the updated properties should be passed in from outside
+            if (isUpdate)
+            {
+                article.MarkAsModified<Article>(a => new { a.Title, a.LegalTitle });
+            }
+            else
+            {
+                article.MarkAsAdded();
+            }
             var container = EntlibUtils.Container;
-            List<Triple<object, EntityState, string[]>> toBeUpdatedEntities = new List<Triple<object, EntityState, string[]>>
-                                                                                  {
-                                                                                      new Triple<object, EntityState, string[]>(article, isUpdate?EntityState.Modified : EntityState.Added, new string[]{"Title", "LegalTitle"}),
-                                                                                      new Triple<object, EntityState, string[]>(article.Blog, EntityState.Unchanged, null)
-                                                                                  };
             using (var ctx = container.Resolve<BloggingContext>())
             {
-                ctx.SaveChanges(toBeUpdatedEntities);
+                ctx.SaveChanges(article);
             }
         }
     }

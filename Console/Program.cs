@@ -11,11 +11,10 @@ using Microsoft.Practices.Unity.Configuration;
 using Microsoft.Practices.Unity.InterceptionExtension;
 using Microsoft.Practices.Unity.InterceptionExtension.Configuration;
 using Newtonsoft.Json;
-using ScottyApps.ScottyBlogging.Biz;
+//using ScottyApps.ScottyBlogging.Biz;
 using ScottyApps.ScottyBlogging.Entity;
 using ScottyApps.Utilities.DbContextExtensions;
 using ScottyApps.Utilities.EntlibExtensions;
-using ScottyApps.Utilities.DbContextExtentions;
 using Wintellect.PowerCollections;
 using System.Security.Permissions;
 
@@ -50,7 +49,7 @@ namespace Console
             //UnityExtensions.InitEnterpriseLibraryContainer(container, filePath);
 
             //EntlibUtils.Container = container;
-            var container = EntlibUtils.Container;
+            //var container = EntlibUtils.Container;
 
             //var query = ctx.Blogs.ToList();
             //if (query.Count == 0)
@@ -89,28 +88,28 @@ namespace Console
             #endregion
 
 
-            var biz = container.Resolve<BloggingBiz>();
-            var blogs = biz.GetBlogsForWriter(new Writer { Email = "scotty.cn@gmail.com" });
+            //var biz = container.Resolve<BloggingBiz>();
+            //var blogs = biz.GetBlogsForWriter(new Writer { Email = "scotty.cn@gmail.com" });
 
-            if (blogs == null || blogs.Count == 0)
-            {
-                System.Console.WriteLine("no blogs found.");
-                return;
-            }
+            //if (blogs == null || blogs.Count == 0)
+            //{
+            //    System.Console.WriteLine("no blogs found.");
+            //    return;
+            //}
 
-            var blog = blogs[0];
-            blog.Url = "v.youku.com";
-            blog.Writer.Alias = "juicy";
+            //var blog = blogs[0];
+            //blog.Url = "v.youku.com";
+            //blog.Writer.Alias = "juicy";
 
-            using (var ctx = container.Resolve<BloggingContext>())
-            {
-                var triples = new List<Triple<object, EntityState, string[]>>
-                {
-                    new Triple<object, EntityState, string[]>(blog, EntityState.Modified, new[]{"Url"}),
-                    new Triple<object, EntityState, string[]>(blog.Writer, EntityState.Modified, new[]{"Alias"})
-                };
-                ctx.SaveChanges(triples);
-            }
+            //using (var ctx = container.Resolve<BloggingContext>())
+            //{
+            //    var triples = new List<Triple<object, EntityState, string[]>>
+            //    {
+            //        new Triple<object, EntityState, string[]>(blog, EntityState.Modified, new[]{"Url"}),
+            //        new Triple<object, EntityState, string[]>(blog.Writer, EntityState.Modified, new[]{"Alias"})
+            //    };
+            //    ctx.SaveChanges(triples);
+            //}
 
             //var interceptedObj = EntlibUtils.Container.Resolve<Blog>(blog);
             //interceptedObj.Url = "http://www.g.cn";

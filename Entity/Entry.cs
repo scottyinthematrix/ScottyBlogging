@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using ScottyApps.Utilities.DbContextExtensions;
 
 namespace ScottyApps.ScottyBlogging.Entity
 {
     [DataContract(IsReference = true)]
-    public class Entry
+    public class Entry : EntityBase
     {
         [Key]
         public string ID { get; set; }

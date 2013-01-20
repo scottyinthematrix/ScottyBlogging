@@ -4,12 +4,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.Serialization;
 using Microsoft.Practices.Unity;
+using ScottyApps.Utilities.DbContextExtensions;
 using ScottyApps.Utilities.EntlibExtensions;
 
 namespace ScottyApps.ScottyBlogging.Entity
 {
     [DataContract(IsReference = true)]
-    public class Writer
+    public class Writer : EntityBase
     {
         [Key]
         public string ID { get; set; }
