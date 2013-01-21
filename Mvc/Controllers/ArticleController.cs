@@ -19,9 +19,26 @@ namespace Mvc.Controllers
         //
         // GET: /Article/
 
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
-            return View();
+            if (string.IsNullOrEmpty(id))
+            {
+                // TODO should allow other filters in the future, such as date range
+                return View();
+            }
+
+            var biz = EntlibUtils.Container.Resolve<BloggingBiz>();
+            var article = biz.FindByKey<Article>(id);
+            if (article == null)
+            {
+                return new HttpStatusCodeResult(404, "the post you requested NOT found.");
+            }
+            ViewBag.ArticleId = article.ID;
+            ViewBag.ArticleTitle = article.Title;
+            var content = FileIO.ReadAllText(GetFullPostPath(article.Body, id));
+            ViewBag.ArticleContent = content;
+
+            return View("Read");
         }
 
         public ActionResult List()

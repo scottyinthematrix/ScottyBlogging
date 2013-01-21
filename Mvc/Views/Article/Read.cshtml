@@ -1,5 +1,17 @@
-﻿@{
-    ViewBag.Title = "Read Me";
+﻿@using ScottyApps.ScottyBlogging.Entity
+@using ScottyApps.ScottyBlogging.Resx
+@{
+    ViewBag.Title = @ViewBag.ArticleTitle;
 }
 
-<h2>@ViewBag.ArticleTitle</h2>
+<div>
+    @Html.Label("title", ScottyBloggingResx.lable_Article_Title)
+    @Html.TextBox("title", (string)ViewBag.ArticleTitle)
+</div>
+
+<div>
+    @Html.Raw((string)@ViewBag.ArticleContent)
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = ViewBag.ArticleId })
+</div>
