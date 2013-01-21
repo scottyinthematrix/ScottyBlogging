@@ -63,7 +63,7 @@ namespace Mvc.Controllers
             }
 
             var biz = EntlibUtils.Container.Resolve<BloggingBiz>();
-            var article = biz.GetArticle(id);
+            var article = biz.FindByKey<Article>(id);
             if (article != null)
             {
                 ViewBag.ArticleId = id;
@@ -99,21 +99,27 @@ namespace Mvc.Controllers
             var editingExistingArticle = !string.IsNullOrEmpty(articleId);
             var biz = EntlibUtils.Container.Resolve<BloggingBiz>();
 
-            Article article = editingExistingArticle ? biz.GetArticle(articleId) : new Article();
+            Article article = editingExistingArticle ? biz.FindByKey<Article>(articleId) : new Article { CreateDate = DateTime.Now };
 
             article.Title = title;
 
             var serverPath = editingExistingArticle ? article.Body : ConfigHelper.GetRandomPostsServerPath();
             var dest = GetFullPostPath(serverPath, article.ID);
+            var folder = Path.GetDirectoryName(dest);
             article.Body = serverPath;
 
             var blogName = this.GetBlogName();
-            var blog = biz.GetBlog(blogName);
+            var blog = biz.FindSingle<Blog>(b => b.Name.ToLower() == blogName.ToLower());
+            blog.MarkAsUnchanged();
             article.Blog = blog;
 
             // NOTE i need the db updating and file io to be in the same transaction - seems it actually does NOT work as expected
             using (TransactionScope ts = new TransactionScope())
             {
+                if (!Directory.Exists(folder))
+                {
+                    Directory.CreateDirectory(folder);
+                }
                 FileIO.WriteAllText(dest, articleEditor);
                 biz.SaveArticle(article, editingExistingArticle);
 

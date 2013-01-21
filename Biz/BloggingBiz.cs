@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Linq.Expressions;
 using Microsoft.Practices.Unity;
 using ScottyApps.ScottyBlogging.Entity;
 using ScottyApps.Utilities.EntlibExtensions;
@@ -12,19 +13,36 @@ namespace ScottyApps.ScottyBlogging.Biz
 {
     public class BloggingBiz
     {
+        public virtual T FindByKey<T>(params object[] keyValues)
+            where T : class
+        {
+            using (var ctx = DbContextFactory.CreateDbContext<BloggingContext>())
+            {
+                return ctx.FindByKey<T>(keyValues);
+            }
+        }
+
+        public virtual List<T> FindAll<T>(Expression<Func<T, bool>> predicate)
+            where T : class
+        {
+            using (var ctx = DbContextFactory.CreateDbContext<BloggingContext>())
+            {
+                return ctx.FindAll<T>(predicate).ToList();
+            }
+        }
+
+        public virtual T FindSingle<T>(Expression<Func<T, bool>> predicate)
+            where T : class
+        {
+            using (var ctx = DbContextFactory.CreateDbContext<BloggingContext>())
+            {
+                return ctx.FindSingle<T>(predicate);
+            }
+        }
+
         public virtual List<Blog> FindBlogs(/* TODO: accept expression as a predicate builder */)
         {
             throw new NotImplementedException("hurry up, scotty!");
-        }
-
-        public virtual Article GetArticle(string id)
-        {
-            var container = EntlibUtils.Container;
-
-            using (var ctx = container.Resolve<BloggingContext>())
-            {
-                return ctx.Articles.SingleOrDefault(a => a.ID == id);
-            }
         }
 
         public virtual Blog GetBlog(string blogName)
@@ -55,9 +73,7 @@ namespace ScottyApps.ScottyBlogging.Biz
         }
         public virtual List<Article> GetArticlesForBlog(string blogName)
         {
-            var container = EntlibUtils.Container;
-
-            using (var ctx = container.Resolve<BloggingContext>())
+            using (var ctx = DbContextFactory.CreateDbContext<BloggingContext>())
             {
                 var query = from a in ctx.Articles
                             where a.Blog.Name.ToLower() == blogName.ToLower()
